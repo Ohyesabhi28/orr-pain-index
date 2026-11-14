@@ -17,6 +17,6 @@ def test_sql_matches_python():
     for live, free in [(600, 600), (900, 600), (606, 600), (2400, 600), (540, 600)]:
         idx, lost = duckdb.sql(
             f"SELECT {INDEX_SQL}, {MINUTES_LOST_SQL} "
-            f"FROM (SELECT {live} AS live_s, {free} AS free_flow_s)").fetchone()
+            f"FROM (SELECT {live} AS live_s, {free} AS free_flow_s)").fetchall()[0]
         assert idx == pain_index(live, free)
         assert lost == minutes_lost(live, free)
