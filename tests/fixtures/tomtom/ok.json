@@ -1,0 +1,20 @@
+{
+  "formatVersion": "0.0.12",
+  "routes": [
+    {
+      "summary": {
+        "lengthInMeters": 11873,
+        "travelTimeInSeconds": 1642,
+        "trafficDelayInSeconds": 531,
+        "trafficLengthInMeters": 3204,
+        "departureTime": "2026-11-14T09:05:12+05:30",
+        "arrivalTime": "2026-11-14T09:32:34+05:30",
+        "noTrafficTravelTimeInSeconds": 1111,
+        "historicTrafficTravelTimeInSeconds": 1498,
+        "liveTrafficIncidentsTravelTimeInSeconds": 1642
+      },
+      "legs": [],
+      "sections": []
+    }
+  ]
+}
