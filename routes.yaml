@@ -1,0 +1,121 @@
+routes:
+  # UNVERIFIED: check path on a map before collection starts
+  - id: silkboard-marathahalli
+    name: Silk Board to Marathahalli
+    corridor: Silk Board – Marathahalli
+    direction: eastbound
+    points: [[12.9177, 77.6238], [12.9255, 77.6760], [12.9569, 77.7011]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: marathahalli-silkboard
+    name: Marathahalli to Silk Board
+    corridor: Silk Board – Marathahalli
+    direction: westbound
+    points: [[12.9569, 77.7011], [12.9251, 77.6760], [12.9177, 77.6238]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: marathahalli-krpuram
+    name: Marathahalli to KR Puram
+    corridor: Marathahalli – KR Puram
+    direction: northbound
+    points: [[12.9569, 77.7011], [12.9910, 77.6930], [13.0008, 77.6960]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: krpuram-marathahalli
+    name: KR Puram to Marathahalli
+    corridor: Marathahalli – KR Puram
+    direction: southbound
+    points: [[13.0008, 77.6960], [12.9910, 77.6934], [12.9569, 77.7011]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: krpuram-hebbal
+    name: KR Puram to Hebbal
+    corridor: KR Puram – Hebbal
+    direction: westbound
+    points: [[13.0008, 77.6960], [13.0170, 77.6640], [13.0400, 77.6400], [13.0450, 77.6180], [13.0358, 77.5970]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: hebbal-krpuram
+    name: Hebbal to KR Puram
+    corridor: KR Puram – Hebbal
+    direction: eastbound
+    points: [[13.0358, 77.5970], [13.0446, 77.6180], [13.0396, 77.6400], [13.0166, 77.6640], [13.0008, 77.6960]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: silkboard-electroniccity
+    name: Silk Board to Electronic City
+    corridor: Silk Board – Electronic City
+    direction: southbound
+    points: [[12.9177, 77.6238], [12.9086, 77.6240], [12.8680, 77.6610], [12.8452, 77.6602]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: electroniccity-silkboard
+    name: Electronic City to Silk Board
+    corridor: Silk Board – Electronic City
+    direction: northbound
+    points: [[12.8452, 77.6602], [12.8680, 77.6606], [12.9086, 77.6236], [12.9177, 77.6238]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: marathahalli-whitefield
+    name: Marathahalli to Whitefield (ITPL)
+    corridor: Marathahalli – Whitefield (ITPL)
+    direction: eastbound
+    points: [[12.9569, 77.7011], [12.9660, 77.7180], [12.9870, 77.7380]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: whitefield-marathahalli
+    name: Whitefield (ITPL) to Marathahalli
+    corridor: Marathahalli – Whitefield (ITPL)
+    direction: westbound
+    points: [[12.9870, 77.7380], [12.9656, 77.7180], [12.9569, 77.7011]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: bellandur-sarjapurroad
+    name: Bellandur to Sarjapur Road junction
+    corridor: Bellandur – Sarjapur Road junction
+    direction: southbound
+    points: [[12.9352, 77.6780], [12.9270, 77.6755], [12.9175, 77.6740]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: sarjapurroad-bellandur
+    name: Sarjapur Road junction to Bellandur
+    corridor: Bellandur – Sarjapur Road junction
+    direction: northbound
+    points: [[12.9175, 77.6740], [12.9270, 77.6751], [12.9352, 77.6780]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: hebbal-manyata
+    name: Hebbal to Manyata Tech Park
+    corridor: Hebbal – Manyata Tech Park
+    direction: eastbound
+    points: [[13.0358, 77.5970], [13.0430, 77.6100], [13.0470, 77.6210]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: manyata-hebbal
+    name: Manyata Tech Park to Hebbal
+    corridor: Hebbal – Manyata Tech Park
+    direction: westbound
+    points: [[13.0470, 77.6210], [13.0426, 77.6100], [13.0358, 77.5970]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: silkboard-bellandur
+    name: Silk Board to Bellandur (Ecospace)
+    corridor: Silk Board – Bellandur (Ecospace)
+    direction: eastbound
+    points: [[12.9177, 77.6238], [12.9255, 77.6600], [12.9275, 77.6812]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: bellandur-silkboard
+    name: Bellandur (Ecospace) to Silk Board
+    corridor: Silk Board – Bellandur (Ecospace)
+    direction: westbound
+    points: [[12.9275, 77.6812], [12.9251, 77.6600], [12.9177, 77.6238]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: krpuram-whitefield
+    name: KR Puram to Whitefield
+    corridor: KR Puram – Whitefield
+    direction: eastbound
+    points: [[13.0008, 77.6960], [12.9915, 77.7160], [12.9698, 77.7500]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: whitefield-krpuram
+    name: Whitefield to KR Puram
+    corridor: KR Puram – Whitefield
+    direction: westbound
+    points: [[12.9698, 77.7500], [12.9911, 77.7160], [13.0008, 77.6960]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: hebbal-airport
+    name: Hebbal to Kempegowda Airport trumpet
+    corridor: Hebbal – Kempegowda Airport trumpet
+    direction: northbound
+    points: [[13.0358, 77.5970], [13.1010, 77.5960], [13.1450, 77.6020], [13.1640, 77.6060]]
+  # UNVERIFIED: check path on a map before collection starts
+  - id: airport-hebbal
+    name: Kempegowda Airport trumpet to Hebbal
+    corridor: Hebbal – Kempegowda Airport trumpet
+    direction: southbound
+    points: [[13.1640, 77.6060], [13.1450, 77.6016], [13.1010, 77.5956], [13.0358, 77.5970]]
