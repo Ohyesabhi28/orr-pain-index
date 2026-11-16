@@ -3,39 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Trends · ORR Pain Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script>try{var t=localStorage.getItem("orr-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html" aria-label="orr Pain Index, home"><span class="brand-mark">orr</span><span class="brand-sub">PAIN<br>INDEX</span></a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="index.html">Live now</a>
+        <a href="corridor.html">Corridors</a>
+        <a href="trends.html" aria-current="page">Trends</a>
+        <a href="methodology.html">Method</a>
+      </nav>
+      <span class="site-place">BENGALURU · IST</span>
+      <button class="btn theme-btn" id="theme" type="button" aria-label="Switch between light and dark theme"><span aria-hidden="true">◐</span>&nbsp; Theme</button>
+    </div>
+  </header>
   <main>
-    <nav class="site-nav" aria-label="Site">
-      <a href="index.html">Live now</a>
-      <a href="trends.html" aria-current="page">Trends</a>
-      <a href="methodology.html">Methodology</a>
-    </nav>
-    <header class="page-head">
-      <h1>Trends</h1>
-      <p class="updated">Weekly averages, rankings and the worst days so far.</p>
-    </header>
-    <section>
-      <h2>Weekly average Pain Index</h2>
+    <div class="page-head">
+      <p class="eyebrow">Trends</p>
+      <h1>Is it getting better?</h1>
+      <p class="lede">Weekly averages, rankings and the worst days so far.</p>
+    </div>
+    <section class="panel card" aria-labelledby="weekly-title">
+      <h2 id="weekly-title">Weekly average Pain Index</h2>
       <div id="chart-notice" class="notice" role="status" hidden></div>
       <div class="chart-wrap" hidden>
         <canvas id="trend-chart" role="img" aria-label="Line chart of weekly average Pain Index per route. The dashed segment is the current, incomplete week."></canvas>
       </div>
-      <p id="chart-note" class="muted" hidden>A dashed line marks a week that is not complete yet.</p>
+      <p id="chart-note" class="caption" hidden>A dashed line marks a week that is not complete yet.</p>
     </section>
-    <section>
-      <h2>Last 7 days vs last 28 days</h2>
+    <section class="panel card" aria-labelledby="rank-title">
+      <h2 id="rank-title">Last 7 days vs last 28 days</h2>
       <div id="rankings" class="table-wrap"></div>
     </section>
-    <section>
-      <h2>Worst days</h2>
+    <section class="panel card" aria-labelledby="worst-title">
+      <h2 id="worst-title">Worst days</h2>
       <div id="worst-notice" class="notice" role="status" hidden></div>
       <ol id="worst-days" class="worst-days"></ol>
     </section>
+    <footer class="site-foot">
+      <p>TomTom-based methodology · 15-minute sampling · All times IST</p>
+    </footer>
   </main>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script type="module" src="theme.js"></script>
   <script type="module" src="trends.js"></script>
 </body>
 </html>
