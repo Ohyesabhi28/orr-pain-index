@@ -1,0 +1,11 @@
+{
+  "generated_at_utc": "2026-11-16T03:10:00Z",
+  "observed_at_utc": "2026-11-16T03:07:00Z",
+  "routes": [
+    {"route_id": "orr-silk-board-hebbal", "name": "Silk Board to Hebbal", "corridor": "ORR", "direction": "northbound", "status": "ok", "live_s": 3300, "free_flow_s": 1500, "distance_m": 16000, "pain_index": 82, "minutes_lost": 30.0},
+    {"route_id": "orr-marathahalli-bellandur", "name": "Marathahalli to Bellandur", "corridor": "ORR", "direction": "westbound", "status": "ok", "live_s": 1800, "free_flow_s": 900, "distance_m": 6000, "pain_index": 50, "minutes_lost": 15.0},
+    {"route_id": "hosur-silk-board-electronic-city", "name": "Silk Board to Electronic City", "corridor": "Hosur Road", "direction": "southbound", "status": "ok", "live_s": 1200, "free_flow_s": 900, "distance_m": 10000, "pain_index": 25, "minutes_lost": 5.0},
+    {"route_id": "old-airport-road", "name": "Old Airport Road", "corridor": "Old Airport Rd", "direction": "eastbound", "status": "ok", "live_s": 660, "free_flow_s": 600, "distance_m": 5000, "pain_index": 9, "minutes_lost": 1.0},
+    {"route_id": "mysore-road", "name": "Nayandahalli to Kengeri", "corridor": "Mysore Road", "direction": "westbound", "status": "missing", "live_s": null, "free_flow_s": null, "distance_m": 9000, "pain_index": null, "minutes_lost": null}
+  ]
+}

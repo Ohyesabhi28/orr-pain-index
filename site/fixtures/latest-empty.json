@@ -1,0 +1,7 @@
+{
+  "generated_at_utc": "2026-11-16T03:10:00Z",
+  "observed_at_utc": null,
+  "routes": [
+    {"route_id": "mysore-road", "name": "Nayandahalli to Kengeri", "corridor": "Mysore Road", "direction": "westbound", "status": "missing", "live_s": null, "free_flow_s": null, "distance_m": null, "pain_index": null, "minutes_lost": null}
+  ]
+}

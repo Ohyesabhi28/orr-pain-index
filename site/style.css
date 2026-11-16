@@ -1,0 +1,93 @@
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1c1c1a;
+  --muted: #5d5d58;
+  --border: #dcdcd6;
+  --low: #1b7f4b;
+  --moderate: #9a6700;
+  --high: #c2410c;
+  --severe: #b01030;
+  --notice-bg: #fff4d6;
+  --notice-border: #e0b64a;
+  --error-bg: #fde4e4;
+  --error-border: #d46a6a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121211;
+    --surface: #1d1d1b;
+    --text: #ececE8;
+    --muted: #a3a39c;
+    --border: #36362f;
+    --low: #4cc38a;
+    --moderate: #e5b23c;
+    --high: #ff8a4c;
+    --severe: #ff6b81;
+    --notice-bg: #3a3118;
+    --notice-border: #7d6a2a;
+    --error-bg: #401c1c;
+    --error-border: #8a3b3b;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+.page-head { margin-bottom: 12px; }
+.updated { margin: 4px 0 0; color: var(--muted); min-height: 1.4em; }
+
+.notice {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--notice-border);
+  background: var(--notice-bg);
+  border-radius: 8px;
+}
+.notice[hidden] { display: none; }
+.notice-error { border-color: var(--error-border); background: var(--error-bg); }
+
+.routes { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+
+.route {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 12px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--muted);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.route-name { font-weight: 600; }
+.route-dir { grid-column: 1; color: var(--muted); font-size: 0.875rem; }
+.route-index { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+.index-num { display: block; font-size: 1.75rem; font-weight: 700; line-height: 1.1; }
+.index-band { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.route-lost, .route-times, .route-nodata { grid-column: 1 / -1; font-size: 0.9rem; }
+.route-times { color: var(--muted); }
+.route-nodata { color: var(--muted); font-style: italic; }
+
+.band-low { border-left-color: var(--low); }
+.band-moderate { border-left-color: var(--moderate); }
+.band-high { border-left-color: var(--high); }
+.band-severe { border-left-color: var(--severe); }
+.band-low .route-index { color: var(--low); }
+.band-moderate .route-index { color: var(--moderate); }
+.band-high .route-index { color: var(--high); }
+.band-severe .route-index { color: var(--severe); }
