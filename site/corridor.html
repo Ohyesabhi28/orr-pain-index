@@ -3,34 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Route · ORR Pain Index</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Corridors · ORR Pain Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script>try{var t=localStorage.getItem("orr-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html" aria-label="orr Pain Index, home"><span class="brand-mark">orr</span><span class="brand-sub">PAIN<br>INDEX</span></a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="index.html">Live now</a>
+        <a href="corridor.html" aria-current="page">Corridors</a>
+        <a href="trends.html">Trends</a>
+        <a href="methodology.html">Method</a>
+      </nav>
+      <span class="site-place">BENGALURU · IST</span>
+      <button class="btn theme-btn" id="theme" type="button" aria-label="Switch between light and dark theme"><span aria-hidden="true">◐</span>&nbsp; Theme</button>
+    </div>
+  </header>
   <main>
-    <nav class="site-nav" aria-label="Site">
-      <a href="index.html">Live now</a>
-      <a href="trends.html">Trends</a>
-      <a href="methodology.html">Methodology</a>
-    </nav>
-    <header class="page-head">
-      <p class="back"><a href="index.html">&larr; All routes</a></p>
-      <h1 id="route-name"></h1>
-      <p id="route-where" class="updated"></p>
-    </header>
     <div id="notice" class="notice" role="status" hidden></div>
     <div id="content" hidden>
-      <section>
-        <h2>Typical Pain Index by weekday and time</h2>
-        <p class="muted">Median index per 30-minute slot, IST. Hatched cells are still collecting data.</p>
-        <div id="heatmap" class="heatmap" role="group" aria-label="Median Pain Index by weekday and time"></div>
+      <div class="page-head" style="margin-bottom: 32px">
+        <p class="eyebrow crumbs">Corridors / Bengaluru</p>
+        <div class="corr-head">
+          <h1 id="corridor-title"></h1>
+          <div class="corr-head-tools"><span class="chip chip-idle" id="chip" aria-live="polite"></span><span id="switch"></span></div>
+        </div>
+        <p class="lede" id="lede"></p>
+        <p class="caption" id="today"></p>
+      </div>
+
+      <div class="dir-cards" id="cards"></div>
+
+      <section class="panel card" style="margin-top: 32px" aria-labelledby="week-title">
+        <h2 id="week-title">A week on this corridor</h2>
+        <p class="caption">Median pain by half-hour · IST</p>
+        <div class="panel-tools">
+          <span id="hm-route"></span>
+          <span class="caption">At least 3 readings from 3 weeks per cell</span>
+        </div>
+        <div id="hm-notice" class="notice" role="status" hidden>Still collecting. A cell fills in once it has at least 3 readings from 3 different weeks.</div>
+        <div class="peak-banner"><span>AM PEAK 07:00–11:00</span><span>PM PEAK 16:30–21:00</span></div>
+        <div class="hm-scroll" tabindex="0" role="region" aria-label="Heatmap, scrolls sideways on small screens">
+          <div id="heatmap" class="heatmap" role="group" aria-label="Median Pain Index by weekday and half-hour"></div>
+        </div>
+        <p class="caption">05:30–23:00 IST · 30-minute bins · n ≥ 3 · swipe sideways on a phone</p>
+        <ul class="legend legend-inline" id="legend" aria-label="Pain bands"></ul>
+        <div class="hm-detail" id="hm-detail" aria-live="polite"></div>
+        <p class="caption">Point detail · hover on desktop, tap or focus on mobile</p>
       </section>
-      <section>
-        <h2>Best and worst times to leave</h2>
-        <div id="departures" class="table-wrap"></div>
+
+      <section class="buyback" style="margin-top: 32px" aria-labelledby="dep-title">
+        <h2 id="dep-title">Buy back some of your evening.</h2>
+        <p class="eyebrow">Best time to leave</p>
+        <div class="panel-tools" id="dep-controls"></div>
+        <p class="caption" id="dep-sub"></p>
+        <div id="dep-body"></div>
+      </section>
+
+      <section class="site-foot" id="insight" style="margin-top: 32px" hidden>
+        <h3>The worst half-hour so far.</h3>
+        <p id="insight-text" style="font-size:14px; color: var(--ink)"></p>
+        <p>TomTom-based methodology · 15-minute sampling · Medians, not single readings</p>
       </section>
     </div>
   </main>
+  <script type="module" src="theme.js"></script>
   <script type="module" src="corridor.js"></script>
 </body>
 </html>

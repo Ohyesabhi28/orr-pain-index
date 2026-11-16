@@ -3,23 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ORR Pain Index</title>
+  <meta name="color-scheme" content="light dark">
+  <title>ORR Pain Index · Live now</title>
+  <meta name="description" content="Live Bengaluru commute times across the Outer Ring Road and other tech corridors, ranked by how much time they cost you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script>try{var t=localStorage.getItem("orr-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html" aria-label="orr Pain Index, home"><span class="brand-mark">orr</span><span class="brand-sub">PAIN<br>INDEX</span></a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="index.html" aria-current="page">Live now</a>
+        <a href="corridor.html">Corridors</a>
+        <a href="trends.html">Trends</a>
+        <a href="methodology.html">Method</a>
+      </nav>
+      <span class="site-place">BENGALURU · IST</span>
+      <button class="btn theme-btn" id="theme" type="button" aria-label="Switch between light and dark theme"><span aria-hidden="true">◐</span>&nbsp; Theme</button>
+    </div>
+  </header>
   <main>
-    <nav class="site-nav" aria-label="Site">
-      <a href="index.html" aria-current="page">Live now</a>
-      <a href="trends.html">Trends</a>
-      <a href="methodology.html">Methodology</a>
-    </nav>
-    <header class="page-head">
-      <h1>ORR Pain Index</h1>
-      <p id="updated" class="updated" aria-live="polite"></p>
-    </header>
+    <div class="context">
+      <p class="caption" id="today">Bengaluru</p>
+      <span class="chip chip-idle" id="chip" aria-live="polite">Loading…</span>
+      <span class="chip">Live data · IST</span>
+    </div>
     <div id="notice" class="notice" role="status" hidden></div>
-    <ol id="routes" class="routes"></ol>
+    <section id="hero" class="hero card" aria-labelledby="hero-title" hidden></section>
+    <section id="empty" class="empty card" hidden>
+      <h2>No data yet</h2>
+      <p class="muted">The first sample will appear after the next 15-minute cycle.</p>
+    </section>
+    <section id="board" aria-labelledby="board-title" hidden>
+      <div class="board-top">
+        <div class="board-title">
+          <h2 id="board-title">The slow lane leaderboard</h2>
+          <p class="caption" id="board-sub"></p>
+        </div>
+        <div class="board-controls" id="controls"></div>
+      </div>
+      <div class="board card" style="margin-top: 24px">
+        <div class="board-head" aria-hidden="true">
+          <span>ROUTE / DIRECTION</span><span class="span-2">PAIN / 100</span><span>MINUTES LOST</span><span>LIVE / FREE-FLOW</span>
+        </div>
+        <ol id="routes" class="routes"></ol>
+      </div>
+    </section>
+    <footer class="site-foot">
+      <h3>A small index. A very real commute.</h3>
+      <p>TomTom-based methodology · 15-minute sampling · All times IST</p>
+      <p>Not navigation advice. Historical patterns are not a promise.</p>
+    </footer>
   </main>
+  <script type="module" src="theme.js"></script>
   <script type="module" src="live.js"></script>
 </body>
 </html>

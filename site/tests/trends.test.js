@@ -49,7 +49,7 @@ test("viewModel with data has no notices", () => {
 test("rankings table: worst 7-day first, band words, dash for missing window", () => {
   const html = rankingsHtml(rankings);
   assert.ok(html.indexOf("Silk Board to Hebbal") < html.indexOf("Old Airport Road"));
-  assert.match(html, /60\.3 <span class="rk-band">Severe|60\.3 <span class="rk-band">High/);
+  assert.match(html, /60\.3 <span class="rk-band">Gridlock|60\.3 <span class="rk-band">Heavy/);
   const partial = rankingsHtml({ windows: { "7d": [{ route_id: "a", name: "A <x>", avg_index: 10 }], "28d": [] } });
   assert.match(partial, /A &lt;x&gt;/);
   assert.match(partial, /&mdash;/);
