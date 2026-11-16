@@ -1,0 +1,289 @@
+{
+  "generated_at_utc": "2026-11-16T10:28:35Z",
+  "windows": {
+    "7d": [
+      {
+        "route_id": "marathahalli-whitefield",
+        "name": "Marathahalli to Whitefield (ITPL)",
+        "avg_index": 31.0,
+        "avg_minutes_lost": 12.7,
+        "n": 1
+      },
+      {
+        "route_id": "marathahalli-silkboard",
+        "name": "Marathahalli to Silk Board",
+        "avg_index": 26.0,
+        "avg_minutes_lost": 15.0,
+        "n": 1
+      },
+      {
+        "route_id": "whitefield-marathahalli",
+        "name": "Whitefield (ITPL) to Marathahalli",
+        "avg_index": 26.0,
+        "avg_minutes_lost": 10.6,
+        "n": 1
+      },
+      {
+        "route_id": "hebbal-manyata",
+        "name": "Hebbal to Manyata Tech Park",
+        "avg_index": 20.0,
+        "avg_minutes_lost": 7.9,
+        "n": 1
+      },
+      {
+        "route_id": "krpuram-whitefield",
+        "name": "KR Puram to Whitefield",
+        "avg_index": 17.0,
+        "avg_minutes_lost": 12.8,
+        "n": 1
+      },
+      {
+        "route_id": "krpuram-marathahalli",
+        "name": "KR Puram to Marathahalli",
+        "avg_index": 16.0,
+        "avg_minutes_lost": 13.3,
+        "n": 1
+      },
+      {
+        "route_id": "marathahalli-krpuram",
+        "name": "Marathahalli to KR Puram",
+        "avg_index": 16.0,
+        "avg_minutes_lost": 14.0,
+        "n": 1
+      },
+      {
+        "route_id": "silkboard-marathahalli",
+        "name": "Silk Board to Marathahalli",
+        "avg_index": 15.0,
+        "avg_minutes_lost": 8.9,
+        "n": 1
+      },
+      {
+        "route_id": "manyata-hebbal",
+        "name": "Manyata Tech Park to Hebbal",
+        "avg_index": 14.0,
+        "avg_minutes_lost": 4.7,
+        "n": 1
+      },
+      {
+        "route_id": "whitefield-krpuram",
+        "name": "Whitefield to KR Puram",
+        "avg_index": 14.0,
+        "avg_minutes_lost": 12.5,
+        "n": 1
+      },
+      {
+        "route_id": "bellandur-silkboard",
+        "name": "Bellandur (Ecospace) to Silk Board",
+        "avg_index": 13.0,
+        "avg_minutes_lost": 7.6,
+        "n": 1
+      },
+      {
+        "route_id": "silkboard-bellandur",
+        "name": "Silk Board to Bellandur (Ecospace)",
+        "avg_index": 13.0,
+        "avg_minutes_lost": 6.9,
+        "n": 1
+      },
+      {
+        "route_id": "hebbal-krpuram",
+        "name": "Hebbal to KR Puram",
+        "avg_index": 12.0,
+        "avg_minutes_lost": 15.2,
+        "n": 1
+      },
+      {
+        "route_id": "krpuram-hebbal",
+        "name": "KR Puram to Hebbal",
+        "avg_index": 11.0,
+        "avg_minutes_lost": 16.1,
+        "n": 1
+      },
+      {
+        "route_id": "electroniccity-silkboard",
+        "name": "Electronic City to Silk Board",
+        "avg_index": 10.0,
+        "avg_minutes_lost": 7.0,
+        "n": 1
+      },
+      {
+        "route_id": "sarjapurroad-bellandur",
+        "name": "Sarjapur Road junction to Bellandur",
+        "avg_index": 10.0,
+        "avg_minutes_lost": 3.2,
+        "n": 1
+      },
+      {
+        "route_id": "silkboard-electroniccity",
+        "name": "Silk Board to Electronic City",
+        "avg_index": 10.0,
+        "avg_minutes_lost": 8.6,
+        "n": 1
+      },
+      {
+        "route_id": "hebbal-airport",
+        "name": "Hebbal to Kempegowda Airport trumpet",
+        "avg_index": 8.0,
+        "avg_minutes_lost": 6.0,
+        "n": 1
+      },
+      {
+        "route_id": "airport-hebbal",
+        "name": "Kempegowda Airport trumpet to Hebbal",
+        "avg_index": 7.0,
+        "avg_minutes_lost": 5.5,
+        "n": 1
+      },
+      {
+        "route_id": "bellandur-sarjapurroad",
+        "name": "Bellandur to Sarjapur Road junction",
+        "avg_index": 5.0,
+        "avg_minutes_lost": 1.6,
+        "n": 1
+      }
+    ],
+    "28d": [
+      {
+        "route_id": "marathahalli-whitefield",
+        "name": "Marathahalli to Whitefield (ITPL)",
+        "avg_index": 31.0,
+        "avg_minutes_lost": 12.7,
+        "n": 1
+      },
+      {
+        "route_id": "marathahalli-silkboard",
+        "name": "Marathahalli to Silk Board",
+        "avg_index": 26.0,
+        "avg_minutes_lost": 15.0,
+        "n": 1
+      },
+      {
+        "route_id": "whitefield-marathahalli",
+        "name": "Whitefield (ITPL) to Marathahalli",
+        "avg_index": 26.0,
+        "avg_minutes_lost": 10.6,
+        "n": 1
+      },
+      {
+        "route_id": "hebbal-manyata",
+        "name": "Hebbal to Manyata Tech Park",
+        "avg_index": 20.0,
+        "avg_minutes_lost": 7.9,
+        "n": 1
+      },
+      {
+        "route_id": "krpuram-whitefield",
+        "name": "KR Puram to Whitefield",
+        "avg_index": 17.0,
+        "avg_minutes_lost": 12.8,
+        "n": 1
+      },
+      {
+        "route_id": "krpuram-marathahalli",
+        "name": "KR Puram to Marathahalli",
+        "avg_index": 16.0,
+        "avg_minutes_lost": 13.3,
+        "n": 1
+      },
+      {
+        "route_id": "marathahalli-krpuram",
+        "name": "Marathahalli to KR Puram",
+        "avg_index": 16.0,
+        "avg_minutes_lost": 14.0,
+        "n": 1
+      },
+      {
+        "route_id": "silkboard-marathahalli",
+        "name": "Silk Board to Marathahalli",
+        "avg_index": 15.0,
+        "avg_minutes_lost": 8.9,
+        "n": 1
+      },
+      {
+        "route_id": "manyata-hebbal",
+        "name": "Manyata Tech Park to Hebbal",
+        "avg_index": 14.0,
+        "avg_minutes_lost": 4.7,
+        "n": 1
+      },
+      {
+        "route_id": "whitefield-krpuram",
+        "name": "Whitefield to KR Puram",
+        "avg_index": 14.0,
+        "avg_minutes_lost": 12.5,
+        "n": 1
+      },
+      {
+        "route_id": "bellandur-silkboard",
+        "name": "Bellandur (Ecospace) to Silk Board",
+        "avg_index": 13.0,
+        "avg_minutes_lost": 7.6,
+        "n": 1
+      },
+      {
+        "route_id": "silkboard-bellandur",
+        "name": "Silk Board to Bellandur (Ecospace)",
+        "avg_index": 13.0,
+        "avg_minutes_lost": 6.9,
+        "n": 1
+      },
+      {
+        "route_id": "hebbal-krpuram",
+        "name": "Hebbal to KR Puram",
+        "avg_index": 12.0,
+        "avg_minutes_lost": 15.2,
+        "n": 1
+      },
+      {
+        "route_id": "krpuram-hebbal",
+        "name": "KR Puram to Hebbal",
+        "avg_index": 11.0,
+        "avg_minutes_lost": 16.1,
+        "n": 1
+      },
+      {
+        "route_id": "electroniccity-silkboard",
+        "name": "Electronic City to Silk Board",
+        "avg_index": 10.0,
+        "avg_minutes_lost": 7.0,
+        "n": 1
+      },
+      {
+        "route_id": "sarjapurroad-bellandur",
+        "name": "Sarjapur Road junction to Bellandur",
+        "avg_index": 10.0,
+        "avg_minutes_lost": 3.2,
+        "n": 1
+      },
+      {
+        "route_id": "silkboard-electroniccity",
+        "name": "Silk Board to Electronic City",
+        "avg_index": 10.0,
+        "avg_minutes_lost": 8.6,
+        "n": 1
+      },
+      {
+        "route_id": "hebbal-airport",
+        "name": "Hebbal to Kempegowda Airport trumpet",
+        "avg_index": 8.0,
+        "avg_minutes_lost": 6.0,
+        "n": 1
+      },
+      {
+        "route_id": "airport-hebbal",
+        "name": "Kempegowda Airport trumpet to Hebbal",
+        "avg_index": 7.0,
+        "avg_minutes_lost": 5.5,
+        "n": 1
+      },
+      {
+        "route_id": "bellandur-sarjapurroad",
+        "name": "Bellandur to Sarjapur Road junction",
+        "avg_index": 5.0,
+        "avg_minutes_lost": 1.6,
+        "n": 1
+      }
+    ]
+  }
+}

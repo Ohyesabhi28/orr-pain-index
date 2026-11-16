@@ -1,0 +1,83 @@
+{
+  "route_id": "manyata-hebbal",
+  "name": "Manyata Tech Park to Hebbal",
+  "weekdays": [
+    {
+      "weekday": 0,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    },
+    {
+      "weekday": 1,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    },
+    {
+      "weekday": 2,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    },
+    {
+      "weekday": 3,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    },
+    {
+      "weekday": 4,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    },
+    {
+      "weekday": 5,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    },
+    {
+      "weekday": 6,
+      "morning": {
+        "best": null,
+        "worst": null
+      },
+      "evening": {
+        "best": null,
+        "worst": null
+      }
+    }
+  ]
+}

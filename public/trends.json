@@ -1,0 +1,32 @@
+{
+  "generated_at_utc": "2026-11-16T10:28:35Z",
+  "weeks": [
+    {
+      "week_start": "2026-11-16",
+      "partial": true,
+      "routes": {
+        "airport-hebbal": 7.0,
+        "bellandur-sarjapurroad": 5.0,
+        "bellandur-silkboard": 13.0,
+        "electroniccity-silkboard": 10.0,
+        "hebbal-airport": 8.0,
+        "hebbal-krpuram": 12.0,
+        "hebbal-manyata": 20.0,
+        "krpuram-hebbal": 11.0,
+        "krpuram-marathahalli": 16.0,
+        "krpuram-whitefield": 17.0,
+        "manyata-hebbal": 14.0,
+        "marathahalli-krpuram": 16.0,
+        "marathahalli-silkboard": 26.0,
+        "marathahalli-whitefield": 31.0,
+        "sarjapurroad-bellandur": 10.0,
+        "silkboard-bellandur": 13.0,
+        "silkboard-electroniccity": 10.0,
+        "silkboard-marathahalli": 15.0,
+        "whitefield-krpuram": 14.0,
+        "whitefield-marathahalli": 26.0
+      }
+    }
+  ],
+  "worst_days": []
+}
