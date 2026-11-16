@@ -1,0 +1,76 @@
+{
+ "generated_at_utc": "2026-11-16T03:10:00Z",
+ "weeks": [
+  {
+   "week_start": "2026-10-19",
+   "partial": false,
+   "routes": {
+    "orr-silk-board-hebbal": 58,
+    "orr-marathahalli-bellandur": 44,
+    "old-airport-road": 18
+   }
+  },
+  {
+   "week_start": "2026-10-26",
+   "partial": false,
+   "routes": {
+    "orr-silk-board-hebbal": 62.2,
+    "orr-marathahalli-bellandur": 48.2,
+    "hosur-silk-board-electronic-city": 35.2,
+    "old-airport-road": 22.2
+   }
+  },
+  {
+   "week_start": "2026-11-02",
+   "partial": false,
+   "routes": {
+    "orr-silk-board-hebbal": 54.9,
+    "orr-marathahalli-bellandur": 40.9,
+    "hosur-silk-board-electronic-city": 27.9,
+    "old-airport-road": 14.9
+   }
+  },
+  {
+   "week_start": "2026-11-09",
+   "partial": false,
+   "routes": {
+    "orr-silk-board-hebbal": 64.5,
+    "orr-marathahalli-bellandur": 50.5,
+    "hosur-silk-board-electronic-city": 37.5,
+    "old-airport-road": 24.5
+   }
+  },
+  {
+   "week_start": "2026-11-16",
+   "partial": true,
+   "routes": {
+    "orr-silk-board-hebbal": 60.3,
+    "orr-marathahalli-bellandur": 46.3,
+    "hosur-silk-board-electronic-city": 33.3,
+    "old-airport-road": 20.3
+   }
+  }
+ ],
+ "worst_days": [
+  {
+   "date": "2026-11-05",
+   "avg_index": 71.4,
+   "avg_minutes_lost": 19.8
+  },
+  {
+   "date": "2026-10-29",
+   "avg_index": 66,
+   "avg_minutes_lost": 17.2
+  },
+  {
+   "date": "2026-11-12",
+   "avg_index": 63.8,
+   "avg_minutes_lost": 16.5
+  },
+  {
+   "date": "2026-10-22",
+   "avg_index": 60.1,
+   "avg_minutes_lost": 15
+  }
+ ]
+}

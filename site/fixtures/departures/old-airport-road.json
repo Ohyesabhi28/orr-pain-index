@@ -1,0 +1,195 @@
+{
+ "route_id": "old-airport-road",
+ "name": "Old Airport Road",
+ "weekdays": [
+  {
+   "weekday": 0,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 8,
+     "median_minutes_lost": 2.4
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   }
+  },
+  {
+   "weekday": 1,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 8,
+     "median_minutes_lost": 2.4
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   }
+  },
+  {
+   "weekday": 2,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 8,
+     "median_minutes_lost": 2.4
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   }
+  },
+  {
+   "weekday": 3,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 8,
+     "median_minutes_lost": 2.4
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   }
+  },
+  {
+   "weekday": 4,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 8,
+     "median_minutes_lost": 2.4
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 36,
+     "median_minutes_lost": 10.8
+    }
+   }
+  },
+  {
+   "weekday": 5,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 3,
+     "median_minutes_lost": 0.9
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 13,
+     "median_minutes_lost": 3.9
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 4,
+     "median_minutes_lost": 1.2
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 13,
+     "median_minutes_lost": 3.9
+    }
+   }
+  },
+  {
+   "weekday": 6,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 3,
+     "median_minutes_lost": 0.9
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 13,
+     "median_minutes_lost": 3.9
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 4,
+     "median_minutes_lost": 1.2
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 13,
+     "median_minutes_lost": 3.9
+    }
+   }
+  }
+ ]
+}

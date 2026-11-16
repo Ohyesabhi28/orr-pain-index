@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology · ORR Pain Index</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <nav class="site-nav" aria-label="Site">
+      <a href="index.html">Live now</a>
+      <a href="trends.html">Trends</a>
+      <a href="methodology.html" aria-current="page">Methodology</a>
+    </nav>
+    <header class="page-head">
+      <h1>Methodology</h1>
+      <p class="updated">How the Pain Index is measured and what it cannot tell you.</p>
+    </header>
+    <section class="prose">
+      <h2>The Pain Index</h2>
+      <p>For each route we compare the current travel time with the free-flow time (the time with no traffic).</p>
+      <p><code>index = clamp((live / free-flow &minus; 1) / (3 &minus; 1), 0, 1) &times; 100</code>, rounded to a whole number.</p>
+      <p>The current ceiling is 3&times; free flow: a trip that takes three times as long as free flow scores 100, and a trip at free flow scores 0. <strong>Minutes lost</strong> is live time minus free-flow time, never below zero.</p>
+      <p>Bands: Low (0&ndash;24), Moderate (25&ndash;49), High (50&ndash;74), Severe (75&ndash;100).</p>
+
+      <h2>Data source and schedule</h2>
+      <p>Travel times come from the TomTom Routing API: one request per route, giving the live and the no-traffic travel time. We poll every 15 minutes between 05:37 and 23:22 IST.</p>
+
+      <h2>Medians and minimum samples</h2>
+      <p>The heatmap shows the median index for each weekday and 30-minute slot. A cell is shown only with at least 3 observations from 3 different weeks. Until then it is hatched grey and marked &ldquo;still collecting&rdquo;. Best and worst departure windows are picked from the cells that qualify, separately for the morning (7&ndash;11 am) and evening (4:30&ndash;9 pm) peaks.</p>
+
+      <h2>Sanity bounds</h2>
+      <p>A reading is discarded, and counted as missing, if any time or distance is zero or negative, or if the live time is less than half the free-flow time. Failed requests are retried once, then recorded as missing.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li>Only the fixed set of routes is measured, not the whole road network.</li>
+        <li>Data is collected at 15-minute resolution, so short spikes between polls are missed.</li>
+        <li>The free-flow time is modelled by TomTom, not measured on an empty road.</li>
+        <li>Skipped or failed runs leave gaps; the dashboard does not fill them in.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

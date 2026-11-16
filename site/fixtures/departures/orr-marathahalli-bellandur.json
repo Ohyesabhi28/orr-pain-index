@@ -1,0 +1,195 @@
+{
+ "route_id": "orr-marathahalli-bellandur",
+ "name": "Marathahalli to Bellandur",
+ "weekdays": [
+  {
+   "weekday": 0,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 17,
+     "median_minutes_lost": 5.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   }
+  },
+  {
+   "weekday": 1,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 17,
+     "median_minutes_lost": 5.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   }
+  },
+  {
+   "weekday": 2,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 17,
+     "median_minutes_lost": 5.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   }
+  },
+  {
+   "weekday": 3,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 17,
+     "median_minutes_lost": 5.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   }
+  },
+  {
+   "weekday": 4,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 17,
+     "median_minutes_lost": 5.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 72,
+     "median_minutes_lost": 21.6
+    }
+   }
+  },
+  {
+   "weekday": 5,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 6,
+     "median_minutes_lost": 1.8
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 9,
+     "median_minutes_lost": 2.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    }
+   }
+  },
+  {
+   "weekday": 6,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 6,
+     "median_minutes_lost": 1.8
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 9,
+     "median_minutes_lost": 2.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 25,
+     "median_minutes_lost": 7.5
+    }
+   }
+  }
+ ]
+}

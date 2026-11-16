@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trends · ORR Pain Index</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <nav class="site-nav" aria-label="Site">
+      <a href="index.html">Live now</a>
+      <a href="trends.html" aria-current="page">Trends</a>
+      <a href="methodology.html">Methodology</a>
+    </nav>
+    <header class="page-head">
+      <h1>Trends</h1>
+      <p class="updated">Weekly averages, rankings and the worst days so far.</p>
+    </header>
+    <section>
+      <h2>Weekly average Pain Index</h2>
+      <div id="chart-notice" class="notice" role="status" hidden></div>
+      <div class="chart-wrap" hidden>
+        <canvas id="trend-chart" role="img" aria-label="Line chart of weekly average Pain Index per route. The dashed segment is the current, incomplete week."></canvas>
+      </div>
+      <p class="muted">A dashed line marks the current week, which is not complete yet.</p>
+    </section>
+    <section>
+      <h2>Last 7 days vs last 28 days</h2>
+      <div id="rankings" class="table-wrap"></div>
+    </section>
+    <section>
+      <h2>Worst days</h2>
+      <div id="worst-notice" class="notice" role="status" hidden></div>
+      <ol id="worst-days" class="worst-days"></ol>
+    </section>
+  </main>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script type="module" src="trends.js"></script>
+</body>
+</html>

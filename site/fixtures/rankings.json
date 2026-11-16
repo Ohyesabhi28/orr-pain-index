@@ -1,0 +1,65 @@
+{
+ "generated_at_utc": "2026-11-16T03:10:00Z",
+ "windows": {
+  "7d": [
+   {
+    "route_id": "orr-silk-board-hebbal",
+    "name": "Silk Board to Hebbal",
+    "avg_index": 60.3,
+    "avg_minutes_lost": 17.1,
+    "n": 640
+   },
+   {
+    "route_id": "orr-marathahalli-bellandur",
+    "name": "Marathahalli to Bellandur",
+    "avg_index": 46.3,
+    "avg_minutes_lost": 9.8,
+    "n": 640
+   },
+   {
+    "route_id": "hosur-silk-board-electronic-city",
+    "name": "Silk Board to Electronic City",
+    "avg_index": 33,
+    "avg_minutes_lost": 6.1,
+    "n": 640
+   },
+   {
+    "route_id": "old-airport-road",
+    "name": "Old Airport Road",
+    "avg_index": 20.3,
+    "avg_minutes_lost": 2.2,
+    "n": 640
+   }
+  ],
+  "28d": [
+   {
+    "route_id": "orr-silk-board-hebbal",
+    "name": "Silk Board to Hebbal",
+    "avg_index": 57.9,
+    "avg_minutes_lost": 16.4,
+    "n": 2560
+   },
+   {
+    "route_id": "orr-marathahalli-bellandur",
+    "name": "Marathahalli to Bellandur",
+    "avg_index": 49,
+    "avg_minutes_lost": 10.5,
+    "n": 2560
+   },
+   {
+    "route_id": "hosur-silk-board-electronic-city",
+    "name": "Silk Board to Electronic City",
+    "avg_index": 30.2,
+    "avg_minutes_lost": 5.5,
+    "n": 2400
+   },
+   {
+    "route_id": "old-airport-road",
+    "name": "Old Airport Road",
+    "avg_index": 17.8,
+    "avg_minutes_lost": 1.9,
+    "n": 2560
+   }
+  ]
+ }
+}

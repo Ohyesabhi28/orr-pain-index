@@ -16,7 +16,9 @@ export function freshness(observedAtIso, nowMs) {
   if (observedAtIso == null) return "empty";
   const minutes = istMinutesOfDay(nowMs);
   if (minutes < OPEN_MIN || minutes >= CLOSE_MIN) return "overnight";
-  const old = nowMs - Date.parse(observedAtIso) > STALE_AFTER_MS;
+  const observedMs = Date.parse(observedAtIso);
+  if (Number.isNaN(observedMs)) return "stale"; // unparseable: never claim "fresh"
+  const old = nowMs - observedMs > STALE_AFTER_MS;
   if (old && minutes < WARMUP_END_MIN) return "overnight";
   return old ? "stale" : "fresh";
 }
@@ -37,3 +39,48 @@ export function istClock(iso) {
   const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
   return `${h12}:${mm} ${h24 < 12 ? "am" : "pm"}`;
 }
+
+/**
+ * Arrange heatmap cells into 7 rows (Monday first) of cells in slot order.
+ * `slots` is the sorted list of distinct slot labels found in the cells.
+ */
+export function heatmapGrid(cells) {
+  const slots = [...new Set(cells.map((c) => c.slot))].sort();
+  const rows = Array.from({ length: 7 }, () => []);
+  for (const c of cells) {
+    if (Number.isInteger(c.weekday) && c.weekday >= 0 && c.weekday < 7) rows[c.weekday].push(c);
+  }
+  for (const row of rows) row.sort((a, b) => (a.slot < b.slot ? -1 : a.slot > b.slot ? 1 : 0));
+  return { slots, rows };
+}
+
+function clock12(totalMinutes) {
+  const m = ((totalMinutes % 1440) + 1440) % 1440;
+  const h24 = Math.floor(m / 60);
+  const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
+  return { text: `${h12}:${String(m % 60).padStart(2, "0")}`, mer: h24 < 12 ? "am" : "pm" };
+}
+
+/** A 30-minute slot start like "08:30" as "8:30–9:00 am" (meridiem shown on both ends when it changes). */
+export function slotRange(slot) {
+  const [h, m] = slot.split(":").map(Number);
+  const start = clock12(h * 60 + m);
+  const end = clock12(h * 60 + m + 30);
+  return start.mer === end.mer
+    ? `${start.text}–${end.text} ${end.mer}`
+    : `${start.text} ${start.mer}–${end.text} ${end.mer}`;
+}
+
+/** A slot start like "08:30" as "8:30 am". */
+export function slotLabel(slot) {
+  const [h, m] = slot.split(":").map(Number);
+  const c = clock12(h * 60 + m);
+  return `${c.text} ${c.mer}`;
+}
+
+export function escapeHtml(text) {
+  return String(text ?? "").replace(/[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+}
+
+export const BAND_LABEL = { low: "Low", moderate: "Moderate", high: "High", severe: "Severe" };

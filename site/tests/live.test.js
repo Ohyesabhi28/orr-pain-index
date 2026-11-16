@@ -48,3 +48,23 @@ test("viewModel fresh has list and no notice", () => {
   assert.match(vm.listHtml, /band-high/);
 });
 test("escapeHtml", () => assert.equal(escapeHtml(`<&"'>`), "&lt;&amp;&quot;&#39;&gt;"));
+
+test("route links to its corridor page, id encoded", () => {
+  assert.match(routeHtml({ ...ok, route_id: "a b&c" }), /href="corridor\.html\?route=a%20b%26c"/);
+});
+test("numeric fields are coerced: strings with markup never reach the HTML", () => {
+  const html = routeHtml({ ...ok, pain_index: "62", minutes_lost: "<img src=x>", live_s: 1920, free_flow_s: 1200 });
+  assert.match(html, /no reading/);
+  assert.doesNotMatch(html, /<img/);
+});
+test("a non-finite or null field means no reading", () => {
+  for (const f of ["pain_index", "minutes_lost", "live_s", "free_flow_s"]) {
+    assert.match(routeHtml({ ...ok, [f]: null }), /no reading/, `${f} null`);
+    assert.match(routeHtml({ ...ok, [f]: "abc" }), /no reading/, `${f} abc`);
+    assert.match(routeHtml({ ...ok, [f]: Infinity }), /no reading/, `${f} Infinity`);
+  }
+});
+test("minutes lost shows at most one decimal", () => {
+  assert.match(routeHtml({ ...ok, minutes_lost: 12.3456 }), /12\.3 min lost/);
+  assert.match(routeHtml({ ...ok, minutes_lost: "30.0" }), />30 min lost</);
+});

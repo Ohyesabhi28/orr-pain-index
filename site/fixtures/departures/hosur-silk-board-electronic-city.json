@@ -1,0 +1,195 @@
+{
+ "route_id": "hosur-silk-board-electronic-city",
+ "name": "Silk Board to Electronic City",
+ "weekdays": [
+  {
+   "weekday": 0,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   }
+  },
+  {
+   "weekday": 1,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   }
+  },
+  {
+   "weekday": 2,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   }
+  },
+  {
+   "weekday": 3,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   }
+  },
+  {
+   "weekday": 4,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 12,
+     "median_minutes_lost": 3.6
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 54,
+     "median_minutes_lost": 16.2
+    }
+   }
+  },
+  {
+   "weekday": 5,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 4,
+     "median_minutes_lost": 1.2
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 7,
+     "median_minutes_lost": 2.1
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    }
+   }
+  },
+  {
+   "weekday": 6,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 4,
+     "median_minutes_lost": 1.2
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 7,
+     "median_minutes_lost": 2.1
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 19,
+     "median_minutes_lost": 5.7
+    }
+   }
+  }
+ ]
+}

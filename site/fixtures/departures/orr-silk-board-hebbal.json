@@ -1,0 +1,195 @@
+{
+ "route_id": "orr-silk-board-hebbal",
+ "name": "Silk Board to Hebbal",
+ "weekdays": [
+  {
+   "weekday": 0,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 21,
+     "median_minutes_lost": 6.3
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   }
+  },
+  {
+   "weekday": 1,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 21,
+     "median_minutes_lost": 6.3
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   }
+  },
+  {
+   "weekday": 2,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 21,
+     "median_minutes_lost": 6.3
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   }
+  },
+  {
+   "weekday": 3,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 21,
+     "median_minutes_lost": 6.3
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   }
+  },
+  {
+   "weekday": 4,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 21,
+     "median_minutes_lost": 6.3
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 90,
+     "median_minutes_lost": 27
+    }
+   }
+  },
+  {
+   "weekday": 5,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 7,
+     "median_minutes_lost": 2.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 11,
+     "median_minutes_lost": 3.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    }
+   }
+  },
+  {
+   "weekday": 6,
+   "morning": {
+    "best": {
+     "slot": "07:00",
+     "median_index": 7,
+     "median_minutes_lost": 2.1
+    },
+    "worst": {
+     "slot": "09:00",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    }
+   },
+   "evening": {
+    "best": {
+     "slot": "16:30",
+     "median_index": 11,
+     "median_minutes_lost": 3.3
+    },
+    "worst": {
+     "slot": "18:30",
+     "median_index": 31,
+     "median_minutes_lost": 9.3
+    }
+   }
+  }
+ ]
+}
