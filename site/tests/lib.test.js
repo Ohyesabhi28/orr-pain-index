@@ -78,3 +78,21 @@ test("slotLabel", () => {
   assert.equal(slotLabel("12:00"), "12:00 pm");
   assert.equal(slotLabel("23:00"), "11:00 pm");
 });
+
+import { istDateLabel, isIstToday } from "../lib.js";
+
+test("dead collector: 7h59m overnight is still overnight, 8h01m is stale", () => {
+  const obs = "2026-11-15T15:55:00Z"; // 21:25 IST
+  assert.equal(freshness(obs, Date.parse(obs) + (7 * 60 + 59) * 60000), "overnight"); // 05:24 IST
+  assert.equal(freshness(obs, Date.parse(obs) + (8 * 60 + 1) * 60000), "stale"); // 05:26 IST
+});
+test("week-old observation at 2am IST is stale", () =>
+  assert.equal(freshness("2026-11-09T17:52:00Z", Date.parse("2026-11-15T20:30:00Z")), "stale"));
+test("istDateLabel is the IST calendar date", () => {
+  assert.equal(istDateLabel("2026-11-11T17:52:00Z"), "11 Nov"); // 23:22 IST
+  assert.equal(istDateLabel("2026-11-11T18:40:00Z"), "12 Nov"); // 00:10 IST next day
+});
+test("isIstToday compares IST days", () => {
+  assert.equal(isIstToday("2026-11-11T17:52:00Z", Date.parse("2026-11-11T18:40:00Z")), false); // 12 Nov 00:10 IST
+  assert.equal(isIstToday("2026-11-11T03:00:00Z", Date.parse("2026-11-11T10:00:00Z")), true);
+});

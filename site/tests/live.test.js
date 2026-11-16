@@ -68,3 +68,9 @@ test("minutes lost shows at most one decimal", () => {
   assert.match(routeHtml({ ...ok, minutes_lost: 12.3456 }), /12\.3 min lost/);
   assert.match(routeHtml({ ...ok, minutes_lost: "30.0" }), />30 min lost</);
 });
+
+test("stale notice adds the IST date when the observation is not from today", () => {
+  const now = Date.parse("2026-11-16T04:00:00Z");
+  assert.equal(noticeText("stale", "2026-11-11T17:52:00Z", now), "Data is stale. Last update 11:22 pm, 11 Nov.");
+  assert.equal(noticeText("stale", "2026-11-16T03:07:00Z", now), "Data is stale. Last update 8:37 am.");
+});

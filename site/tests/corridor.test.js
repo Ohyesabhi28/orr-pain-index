@@ -63,3 +63,12 @@ test("every fixture route has heatmap and departures files", () => {
     assert.equal(fx(`departures/${r.route_id}.json`).route_id, r.route_id);
   }
 });
+
+test("departures: best with null worst says no different slot yet", () => {
+  const html = departuresHtml({ weekdays: [{ weekday: 0,
+    morning: { best: { slot: "07:00", median_index: 30 }, worst: null },
+    evening: { best: null, worst: null } }] });
+  assert.match(html, /no different slot yet/);
+  assert.match(html, /Best/);
+  assert.match(html, /still collecting/);
+});

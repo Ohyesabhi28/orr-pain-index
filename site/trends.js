@@ -2,7 +2,10 @@ import { band, escapeHtml, BAND_LABEL } from "./lib.js";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const POINT_STYLES = ["circle", "rect", "triangle", "rectRot", "cross", "star"];
+// Colours cycle with period SERIES_COLOR_COUNT and point styles with period 5; the two are
+// co-prime, so 6 x 5 = 30 distinct (colour, style) pairs cover the 20 routes.
+export const SERIES_COLOR_COUNT = 6;
+const POINT_STYLES = ["circle", "rect", "triangle", "rectRot", "cross"];
 
 const num = (v) => (v == null || (typeof v === "string" && v.trim() === "") ? NaN : Number(v));
 
@@ -123,16 +126,17 @@ export function viewModel(trends, rankings) {
     chartNotice: hasWeeks ? null : "Still collecting. Weekly trends appear after the first full week of data.",
     rankingsHtml: rankingsHtml(rankings) || `<p class="muted">Still collecting. Rankings appear once routes have readings.</p>`,
     worstDaysHtml: worstDaysHtml(trends),
-    worstDaysNotice: (trends.worst_days ?? []).length ? null : "Still collecting. A day needs at least 40 readings to count.",
+    worstDaysNotice: (trends.worst_days ?? []).length ? null : "Still collecting. A day needs at least 1,000 readings to count.",
   };
 }
 
 function seriesColors() {
   const css = getComputedStyle(document.documentElement);
-  return [1, 2, 3, 4, 5, 6].map((i) => css.getPropertyValue(`--series-${i}`).trim() || "#888");
+  return Array.from({ length: SERIES_COLOR_COUNT }, (_, k) => k + 1).map((i) => css.getPropertyValue(`--series-${i}`).trim() || "#888");
 }
 
 function drawChart(model) {
+  const note = document.getElementById("chart-note");
   const canvas = document.getElementById("trend-chart");
   const notice = document.getElementById("chart-notice");
   if (typeof Chart === "undefined") {
@@ -144,6 +148,7 @@ function drawChart(model) {
   const css = getComputedStyle(document.documentElement);
   new Chart(canvas, chartConfig(model, seriesColors(),
     { text: css.getPropertyValue("--muted").trim(), grid: css.getPropertyValue("--border").trim() }));
+  if (note) note.hidden = false;
 }
 
 async function main() {
@@ -158,8 +163,15 @@ async function main() {
       const names = {};
       for (const list of Object.values(rankings.windows ?? {})) for (const r of list) names[r.route_id] = r.name;
       const chartNotice = document.getElementById("chart-notice");
-      if (vm.hasWeeks) drawChart(chartModel(trends, names));
-      else { chartNotice.textContent = vm.chartNotice; chartNotice.hidden = false; }
+      if (vm.hasWeeks) {
+        try {
+          drawChart(chartModel(trends, names));
+        } catch (err) { // a failing chart must not stop the tables below
+          chartNotice.textContent = "The chart could not be drawn. The tables below still show the numbers.";
+          chartNotice.hidden = false;
+          document.getElementById("trend-chart")?.parentElement?.setAttribute("hidden", "");
+        }
+      } else { chartNotice.textContent = vm.chartNotice; chartNotice.hidden = false; }
       document.getElementById("rankings").innerHTML = vm.rankingsHtml;
       document.getElementById("worst-days").innerHTML = vm.worstDaysHtml;
       const wn = document.getElementById("worst-notice");

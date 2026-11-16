@@ -9,7 +9,7 @@ from collector.routes import Route
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://api.tomtom.com/routing/1/calculateRoute"
-TIMEOUT_S = 20
+TIMEOUT_S = 8
 RETRY_DELAY_S = 2
 
 

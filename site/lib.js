@@ -2,6 +2,8 @@
 
 const IST_OFFSET_MIN = 330;
 const STALE_AFTER_MS = 45 * 60 * 1000;
+const DEAD_AFTER_MS = 8 * 60 * 60 * 1000; // normal overnight gap is ~6 h (23:22 to 05:37 IST)
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const OPEN_MIN = 5 * 60 + 30; // 05:30 IST
 const CLOSE_MIN = 23 * 60 + 30; // 23:30 IST
 const WARMUP_END_MIN = 6 * 60 + 15; // 06:15 IST
@@ -14,10 +16,11 @@ function istMinutesOfDay(ms) {
 /** "fresh" | "stale" | "overnight" | "empty" */
 export function freshness(observedAtIso, nowMs) {
   if (observedAtIso == null) return "empty";
-  const minutes = istMinutesOfDay(nowMs);
-  if (minutes < OPEN_MIN || minutes >= CLOSE_MIN) return "overnight";
   const observedMs = Date.parse(observedAtIso);
   if (Number.isNaN(observedMs)) return "stale"; // unparseable: never claim "fresh"
+  if (nowMs - observedMs > DEAD_AFTER_MS) return "stale"; // a dead collector is stale even overnight
+  const minutes = istMinutesOfDay(nowMs);
+  if (minutes < OPEN_MIN || minutes >= CLOSE_MIN) return "overnight";
   const old = nowMs - observedMs > STALE_AFTER_MS;
   if (old && minutes < WARMUP_END_MIN) return "overnight";
   return old ? "stale" : "fresh";
@@ -38,6 +41,21 @@ export function istClock(iso) {
   const mm = String(minutes % 60).padStart(2, "0");
   const h12 = h24 % 12 === 0 ? 12 : h24 % 12;
   return `${h12}:${mm} ${h24 < 12 ? "am" : "pm"}`;
+}
+
+function istDayNumber(ms) {
+  return Math.floor((ms + IST_OFFSET_MIN * 60 * 1000) / 86400000);
+}
+
+/** IST calendar date like "11 Nov". */
+export function istDateLabel(iso) {
+  const shifted = new Date(Date.parse(iso) + IST_OFFSET_MIN * 60 * 1000);
+  return `${shifted.getUTCDate()} ${MONTHS[shifted.getUTCMonth()]}`;
+}
+
+/** True when the ISO instant falls on the same IST calendar day as `nowMs`. */
+export function isIstToday(iso, nowMs) {
+  return istDayNumber(Date.parse(iso)) === istDayNumber(nowMs);
 }
 
 /**

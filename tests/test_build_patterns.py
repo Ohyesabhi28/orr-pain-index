@@ -137,7 +137,7 @@ def test_departures_best_and_worst(tmp_path):
     assert mon["weekday"] == 0
     assert mon["morning"]["best"] == {"slot": "07:00", "median_index": 30, "median_minutes_lost": 6.0}
     assert mon["morning"]["worst"] == {"slot": "08:30", "median_index": 70, "median_minutes_lost": 14.0}
-    assert mon["evening"]["best"]["slot"] == "17:00" == mon["evening"]["worst"]["slot"]
+    assert mon["evening"]["best"]["slot"] == "17:00" and mon["evening"]["worst"] is None
     assert d["weekdays"][1]["morning"] == {"best": None, "worst": None}
 
 
@@ -145,7 +145,7 @@ def test_departures_tie_goes_to_earlier_slot(tmp_path):
     rows = _dep_rows([("03:07:00", 40), ("01:37:00", 40), ("03:37:00", 40)])  # 08:30, 07:00, 09:00
     out = run(tmp_path, [route("a")], rows)
     m = read(out, "departures/a.json")["weekdays"][0]["morning"]
-    assert m["best"]["slot"] == "07:00" and m["worst"]["slot"] == "07:00"
+    assert m["best"]["slot"] == "07:00" and m["worst"] is None
 
 
 def test_departures_window_edges(tmp_path):
@@ -153,7 +153,7 @@ def test_departures_window_edges(tmp_path):
     rows = _dep_rows([("05:30:00", 90), ("11:00:00", 10), ("15:30:00", 95)])
     d = read(run(tmp_path, [route("a")], rows), "departures/a.json")["weekdays"][0]
     assert d["morning"] == {"best": None, "worst": None}
-    assert d["evening"]["best"]["slot"] == "16:30" and d["evening"]["worst"]["slot"] == "16:30"
+    assert d["evening"]["best"]["slot"] == "16:30" and d["evening"]["worst"] is None
 
 
 def test_departures_null_without_ok_cells(tmp_path):
@@ -173,27 +173,65 @@ def test_trends_week_start_is_ist_monday(tmp_path):
 
 
 def test_current_week_is_partial(tmp_path):
-    rows = [ok("2026-11-04T03:00:00Z", "a", 20), ok("2026-11-12T03:00:00Z", "a", 40)]
+    rows = [ok("2026-11-02T03:00:00Z", "a", 20), ok("2026-11-12T03:00:00Z", "a", 40)]
     t = read(run(tmp_path, [route("a")], rows), "trends.json")
     assert [(w["week_start"], w["partial"]) for w in t["weeks"]] == [
         ("2026-11-02", False), ("2026-11-09", True)]
 
 
-def test_worst_days_requires_40_rows(tmp_path):
-    day_ok = [ok(f"2026-11-10T{h:02d}:{m:02d}:00Z", "a", 60) for h in range(2, 4) for m in range(0, 60, 3)][:40]
-    day_few = [ok(f"2026-11-11T02:{m:02d}:00Z", "a", 90) for m in range(0, 39)]
-    day_pad = [miss(f"2026-11-11T03:{m:02d}:00Z", "a") for m in range(0, 30)]
-    t = read(run(tmp_path, [route("a")], day_ok + day_few + day_pad), "trends.json")
+def day_rows(date, n, index, start_min=0):
+    """n ok rows on one UTC date (within one IST date), one per minute from 00:00Z."""
+    return [ok(f"{date}T{(start_min + m) // 60:02d}:{(start_min + m) % 60:02d}:00Z", "a", index) for m in range(n)]
+
+
+def test_worst_days_requires_1000_rows(tmp_path):
+    rows = (day_rows("2026-11-10", 1000, 60) + day_rows("2026-11-11", 999, 90)
+            + [miss(f"2026-11-11T{16 + m // 60:02d}:{m % 60:02d}:00Z", "a") for m in range(30)])
+    t = read(run(tmp_path, [route("a")], rows), "trends.json")
     assert t["worst_days"] == [{"date": "2026-11-10", "avg_index": 60.0, "avg_minutes_lost": 12.0}]
+
+
+def test_worst_days_excludes_today_ist(tmp_path):
+    # NOW is Sat 2026-11-14 11:30 IST; a full-looking 14 Nov must not be listed
+    rows = day_rows("2026-11-13", 1000, 50) + day_rows("2026-11-14", 1000, 95, start_min=0)
+    t = read(run(tmp_path, [route("a")], rows), "trends.json")
+    assert [d["date"] for d in t["worst_days"]] == ["2026-11-13"]
 
 
 def test_worst_days_top_10_sorted(tmp_path):
     rows = []
     for day in range(1, 13):
-        rows += [ok(f"2026-11-{day:02d}T{2 + m // 60:02d}:{m % 60:02d}:00Z", "a", day * 5) for m in range(40)]
+        rows += day_rows(f"2026-11-{day:02d}", 1000, day * 5)
     t = read(run(tmp_path, [route("a")], rows), "trends.json")
     assert len(t["worst_days"]) == 10
     assert t["worst_days"][0]["date"] == "2026-11-12" and t["worst_days"][-1]["date"] == "2026-11-03"
+
+
+def test_first_week_partial_when_collection_starts_midweek(tmp_path):
+    # Thu 2026-11-05 start; week of 11-02 is incomplete, 11-09 is complete-looking but current -> partial anyway
+    rows = [ok("2026-11-05T03:00:00Z", "a", 20), ok("2026-11-12T03:00:00Z", "a", 40)]
+    t = read(run(tmp_path, [route("a")], rows, now=datetime(2026, 11, 22, 6, 0, tzinfo=timezone.utc)), "trends.json")
+    assert [(w["week_start"], w["partial"]) for w in t["weeks"]] == [
+        ("2026-11-02", True), ("2026-11-09", False)]
+
+
+def test_first_week_not_partial_when_starting_monday(tmp_path):
+    rows = [ok("2026-11-02T03:00:00Z", "a", 20), ok("2026-11-12T03:00:00Z", "a", 40)]
+    t = read(run(tmp_path, [route("a")], rows, now=datetime(2026, 11, 22, 6, 0, tzinfo=timezone.utc)), "trends.json")
+    assert [(w["week_start"], w["partial"]) for w in t["weeks"]] == [
+        ("2026-11-02", False), ("2026-11-09", False)]
+
+
+def test_departures_all_tie_has_no_worst(tmp_path):
+    rows = _dep_rows([("01:37:00", 40), ("03:07:00", 40)])
+    m = read(run(tmp_path, [route("a")], rows), "departures/a.json")["weekdays"][0]["morning"]
+    assert m["best"]["slot"] == "07:00" and m["worst"] is None
+
+
+def test_departures_distinct_cells_keep_both(tmp_path):
+    rows = _dep_rows([("01:37:00", 30), ("03:07:00", 70)])
+    m = read(run(tmp_path, [route("a")], rows), "departures/a.json")["weekdays"][0]["morning"]
+    assert m["best"]["slot"] == "07:00" and m["worst"]["slot"] == "08:30"
 
 
 def test_month_rollover(tmp_path):

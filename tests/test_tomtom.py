@@ -68,7 +68,7 @@ def test_ok():
     assert url.endswith("/12.95,77.65:12.97,77.7/json")
     assert params == {"key": KEY, "traffic": "true", "computeTravelTimeFor": "all",
                       "routeType": "fastest", "travelMode": "car"}
-    assert timeout == 20
+    assert timeout == 8
 
 
 def test_http_error_retries_once_then_missing():

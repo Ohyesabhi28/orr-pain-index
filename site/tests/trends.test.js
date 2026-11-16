@@ -63,3 +63,16 @@ test("bad numbers in trends do not reach the HTML", () => {
   const html = worstDaysHtml({ worst_days: [{ date: "<i>", avg_index: "<img>", avg_minutes_lost: null }] });
   assert.doesNotMatch(html, /<i>|<img>/);
 });
+
+test("20 series get 20 distinct (colour, point style) pairs", () => {
+  const routes = {};
+  for (let i = 0; i < 20; i++) routes[`r${i}`] = 10 + i;
+  const model = chartModel({ weeks: [{ week_start: "2026-11-02", partial: false, routes }] });
+  const colors = ["#1", "#2", "#3", "#4", "#5", "#6"];
+  const cfg = chartConfig(model, colors);
+  const pairs = new Set(cfg.data.datasets.map((d) => `${d.borderColor}|${d.pointStyle}`));
+  assert.equal(cfg.data.datasets.length, 20);
+  assert.equal(pairs.size, 20);
+});
+test("worst-days notice states the real threshold", () =>
+  assert.match(viewModel(fx("trends-empty.json"), { windows: {} }).worstDaysNotice, /1,000 readings/));

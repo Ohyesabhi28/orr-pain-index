@@ -46,7 +46,8 @@ function pickHtml(label, pick) {
 function peakHtml(peak) {
   const best = pickHtml("Best", peak?.best);
   const worst = pickHtml("Worst", peak?.worst);
-  if (!best || !worst) return `<span class="dep-none">${COLLECTING}</span>`;
+  if (!best) return `<span class="dep-none">${COLLECTING}</span>`;
+  if (!worst) return `${best}<br><span class="dep-none">no different slot yet</span>`; // single or all-tied slot
   return `${best}<br>${worst}`;
 }
 

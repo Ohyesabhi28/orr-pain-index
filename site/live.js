@@ -1,10 +1,13 @@
-import { freshness, band, istClock, escapeHtml, BAND_LABEL } from "./lib.js";
+import { freshness, band, istClock, istDateLabel, isIstToday, escapeHtml, BAND_LABEL } from "./lib.js";
 
 export { escapeHtml };
 
 /** Notice text for a freshness state, or null when there is nothing to say. */
-export function noticeText(state, observedAtIso) {
-  if (state === "stale") return `Data is stale. Last update ${istClock(observedAtIso)}.`;
+export function noticeText(state, observedAtIso, nowMs) {
+  if (state === "stale") {
+    const date = nowMs != null && !isIstToday(observedAtIso, nowMs) ? `, ${istDateLabel(observedAtIso)}` : "";
+    return `Data is stale. Last update ${istClock(observedAtIso)}${date}.`;
+  }
   if (state === "overnight") return "Collection resumes at 5:30am.";
   if (state === "empty") return "Still collecting. First data arrives soon.";
   return null;
@@ -57,7 +60,7 @@ export function viewModel(latest, nowMs) {
   return {
     state,
     updated: updatedText(observed),
-    notice: noticeText(state, observed),
+    notice: noticeText(state, observed, nowMs),
     listHtml: state === "empty" ? "" : listHtml(latest.routes ?? []),
   };
 }

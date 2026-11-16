@@ -16,7 +16,8 @@ SLOTS = [
 PEAKS = {"morning": ("07:00", "11:00"), "evening": ("16:30", "21:00")}
 MIN_CELL_OBS = 3
 MIN_CELL_WEEKS = 3
-MIN_DAY_ROWS = 40
+# 1,000 of a possible 1,440 ok rows (20 routes x 72 runs): a day must be mostly collected.
+MIN_DAY_ROWS = 1000
 WORST_DAYS = 10
 
 
@@ -69,6 +70,8 @@ def _pick(cells: list[dict]) -> dict:
     for c in ok[1:]:
         if c["median_index"] > worst["median_index"]:
             worst = c
+    if worst is best:  # a single cell or an all-tie window: no different slot to avoid
+        return {"best": shape(best), "worst": None}
     return {"best": shape(best), "worst": shape(worst)}
 
 
@@ -96,11 +99,18 @@ def trends(con, now_utc: datetime, fmt) -> dict:
         w = weeks.setdefault(week_start, {"week_start": week_start,
                                           "partial": week_start == current_week, "routes": {}})
         w["routes"][rid] = round(avg, 1)
+    first = con.execute("SELECT min(ist_date)::VARCHAR FROM obs").fetchone()[0]
+    if first is not None:  # collection began mid-week: that first week is incomplete too
+        first_date = datetime.strptime(first, "%Y-%m-%d").date()
+        first_week = (first_date - timedelta(days=first_date.weekday())).isoformat()
+        if first_date.weekday() != 0 and first_week in weeks:
+            weeks[first_week]["partial"] = True
     day_rows = con.execute(
         "SELECT ist_date::VARCHAR, avg(pain_index), avg(minutes_lost) FROM obs"
-        " WHERE status = 'ok' AND pain_index IS NOT NULL GROUP BY ist_date"
+        " WHERE status = 'ok' AND pain_index IS NOT NULL AND ist_date < CAST(? AS DATE)"
+        " GROUP BY ist_date"
         " HAVING count(*) >= ? ORDER BY avg(pain_index) DESC, ist_date DESC LIMIT ?",
-        [MIN_DAY_ROWS, WORST_DAYS],
+        [now_ist.date().isoformat(), MIN_DAY_ROWS, WORST_DAYS],
     ).fetchall()
     return {
         "generated_at_utc": fmt(now_utc),
