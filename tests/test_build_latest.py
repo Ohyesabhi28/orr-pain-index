@@ -59,6 +59,12 @@ def test_latest_sorted_with_missing_last(tmp_path):
     assert b["live_s"] is None and b["pain_index"] is None and b["minutes_lost"] is None
 
 
+def test_ok_row_with_null_times_is_missing(tmp_path):
+    latest, _ = run(tmp_path, [route("a")], [("2026-11-14T03:00:00Z", "a", None, None, 5000, "ok")])
+    r = latest["routes"][0]
+    assert r["status"] == "missing" and r["minutes_lost"] is None and r["pain_index"] is None
+
+
 def test_unknown_route_in_raw_is_ignored(tmp_path):
     ts = "2026-11-14T03:00:00Z"
     latest, rankings = run(tmp_path, [route("a")], [ok(ts, "a", 900, 600), ok(ts, "zzz", 3000, 600)])

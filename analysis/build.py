@@ -9,6 +9,7 @@ from pathlib import Path
 import duckdb
 
 from analysis.load import load_raw
+from analysis.patterns import departures, heatmap, trends
 from collector.routes import Route, load_routes
 
 _TS_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
@@ -52,7 +53,7 @@ def _latest(routes: list[Route], con, now_utc: datetime) -> dict:
         row = by_route.get(route.id)
         entry = {"route_id": route.id, "name": route.name,
                  "corridor": route.corridor, "direction": route.direction}
-        if row is None or row[1] != "ok":
+        if row is None or row[1] != "ok" or None in (row[2], row[3], row[5], row[6]):
             entry.update(status="missing", live_s=None, free_flow_s=None,
                          distance_m=_num(row[4]) if row else None,
                          pain_index=None, minutes_lost=None)
@@ -99,10 +100,18 @@ def build(routes: list[Route], raw_dir: Path, out_dir: Path, now_utc: datetime) 
         load_raw(Path(raw_dir), [r.id for r in routes], con)
         latest = _latest(routes, con, now_utc)
         rankings = _rankings(routes, con, now_utc)
+        heatmaps = {r.id: heatmap(r, con) for r in routes}
+        departure_sets = {r.id: departures(r, con) for r in routes}
+        trend = trends(con, now_utc, _fmt)
     finally:
         con.close()
     _write_json(out_dir / "latest.json", latest)
     _write_json(out_dir / "rankings.json", rankings)
+    _write_json(out_dir / "trends.json", trend)
+    for subdir, data in (("heatmap", heatmaps), ("departures", departure_sets)):
+        (out_dir / subdir).mkdir(exist_ok=True)
+        for rid, doc in data.items():
+            _write_json(out_dir / subdir / f"{rid}.json", doc)
 
 
 def main(argv: list[str] | None = None) -> int:
