@@ -1,6 +1,5 @@
-// TODO: replace <owner>/<repo> with the real GitHub repository once it exists.
-// This is the only place the placeholder lives.
-const REMOTE_BASE = "https://raw.githubusercontent.com/<owner>/<repo>/data/public/";
+// Remote data base: the `data` branch of this repository.
+const REMOTE_BASE = "https://raw.githubusercontent.com/Ohyesabhi28/orr-pain-index/data/public/";
 
 const params = new URLSearchParams(globalThis.location?.search ?? "");
 
