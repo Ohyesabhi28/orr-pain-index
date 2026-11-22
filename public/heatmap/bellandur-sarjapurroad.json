@@ -1967,8 +1967,8 @@
       "weekday": 6,
       "slot": "20:00",
       "median_index": null,
-      "n": 0,
-      "weeks": 0,
+      "n": 1,
+      "weeks": 1,
       "status": "insufficient"
     },
     {
