@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-27T18:06:03Z",
+  "generated_at_utc": "2026-11-28T07:31:30Z",
   "weeks": [
     {
       "week_start": "2026-11-16",
@@ -31,26 +31,26 @@
       "week_start": "2026-11-23",
       "partial": true,
       "routes": {
-        "airport-hebbal": 1.8,
-        "bellandur-sarjapurroad": 2.1,
-        "bellandur-silkboard": 3.5,
-        "electroniccity-silkboard": 4.1,
-        "hebbal-airport": 3.2,
-        "hebbal-krpuram": 3.4,
-        "hebbal-manyata": 6.8,
-        "krpuram-hebbal": 3.1,
-        "krpuram-marathahalli": 3.9,
-        "krpuram-whitefield": 5.6,
-        "manyata-hebbal": 5.7,
-        "marathahalli-krpuram": 3.0,
-        "marathahalli-silkboard": 5.8,
-        "marathahalli-whitefield": 10.1,
-        "sarjapurroad-bellandur": 3.9,
-        "silkboard-bellandur": 6.2,
-        "silkboard-electroniccity": 4.3,
-        "silkboard-marathahalli": 5.6,
-        "whitefield-krpuram": 4.5,
-        "whitefield-marathahalli": 8.0
+        "airport-hebbal": 2.2,
+        "bellandur-sarjapurroad": 2.0,
+        "bellandur-silkboard": 3.9,
+        "electroniccity-silkboard": 4.8,
+        "hebbal-airport": 3.6,
+        "hebbal-krpuram": 3.8,
+        "hebbal-manyata": 8.3,
+        "krpuram-hebbal": 3.6,
+        "krpuram-marathahalli": 4.2,
+        "krpuram-whitefield": 6.2,
+        "manyata-hebbal": 6.5,
+        "marathahalli-krpuram": 3.2,
+        "marathahalli-silkboard": 6.3,
+        "marathahalli-whitefield": 10.8,
+        "sarjapurroad-bellandur": 4.6,
+        "silkboard-bellandur": 6.0,
+        "silkboard-electroniccity": 5.0,
+        "silkboard-marathahalli": 5.7,
+        "whitefield-krpuram": 5.0,
+        "whitefield-marathahalli": 9.2
       }
     }
   ],

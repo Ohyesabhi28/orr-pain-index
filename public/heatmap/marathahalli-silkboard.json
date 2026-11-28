@@ -1567,8 +1567,8 @@
       "weekday": 5,
       "slot": "13:00",
       "median_index": null,
-      "n": 0,
-      "weeks": 0,
+      "n": 1,
+      "weeks": 1,
       "status": "insufficient"
     },
     {
